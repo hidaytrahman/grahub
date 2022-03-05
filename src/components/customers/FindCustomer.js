@@ -1,13 +1,26 @@
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Alert, Box, Divider, Flex } from "../styles/Core.styles";
-import { Input, Button, Message } from "../styles/Forms.styles";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { Alert, Box, Divider, Flex, Typography } from "../styles/Core.styles";
+import { Input, Button, Message, ButtonLink } from "../styles/Forms.styles";
+
+const FindCustomerContainer = styled.section`
+    background: #ccc;
+    padding: 3rem;
+    // position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  `
 
 const FindCustomer = () => {
   const {
     register,
     handleSubmit,
     watch,
+    getValues,
     formState: { errors },
   } = useForm();
   const customers = JSON.parse(localStorage.getItem("customers")) || [];
@@ -28,6 +41,13 @@ const FindCustomer = () => {
     console.log(result);
   };
 
+  const navigate = useNavigate();
+
+  const addNewCustomer = () => {
+    const _phone =  getValues("phone");
+    navigate('/add', { state: { phone: _phone } });
+  }
+
   const onSubmit = (data) => {
     console.log(data);
     const result = customers.filter((item, index) => item.phone === data.phone);
@@ -38,38 +58,47 @@ const FindCustomer = () => {
 
   return (
     <>
-      <Box>
+      <FindCustomerContainer>
         <h2> Find your customer</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <Flex>
             <Input
-              type="number"
+              type="text"
               placeholder="Mobile number to search"
               {...register("phone", {
                 required: true,
-                minLength: 10,
-                maxLength: 10,
+                minLength: 8,
+                maxLength: 16,
               })}
             />
 
             <Message>
-              {errors.phone?.type === "required" && "phone is required"}{" "}
+              {errors.phone?.type === "required" && "phone is required"}
             </Message>
             <Message>
               {errors.phone?.type === "minLength" &&
-                "At least 10 number required"}
+                "At least 8 number required"}
             </Message>
 
             <Message>
               {errors.phone?.type === "maxLength" &&
-                "Number should not exceeds 10 digit"}
+                "Number should not exceeds 16 digit"}
             </Message>
 
             <Button type="submit">search</Button>
           </Flex>
+
+          {seraching && currentCustomers?.length === 0 && (
+            <Flex alignItems="center">
+              <Typography variant="body3">No customers found. You can  <Button variant="secondary" size="small" onClick={addNewCustomer}>Create</Button> the customer here</Typography>
+             
+
+            </Flex>
+
+          )}
         </form>
-      </Box>
+      </FindCustomerContainer>
 
       <Divider />
       {seraching && currentCustomers?.length > 0 && (
@@ -95,7 +124,7 @@ const FindCustomer = () => {
         </table>
       )}
 
-      {seraching && currentCustomers?.length == 0 && (
+      {seraching && currentCustomers?.length === 0 && (
         <Alert>No customers found</Alert>
       )}
     </>

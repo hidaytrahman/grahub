@@ -1,0 +1,7 @@
+# Project Plan
+
+- Better UI and Better message and validation
+- Interactive Landing page
+- Improvements
+ * Don't show search panel if no customer exists
+ 

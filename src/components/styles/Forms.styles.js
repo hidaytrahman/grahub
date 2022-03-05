@@ -15,6 +15,16 @@ export const Button = styled.button`
 
   background: ${({ theme }) => theme.colors.primary};
 
+  ${(size) => {
+
+    if(size === 'small') {
+      return `
+      padding: 0 5px;
+      font-size: 14px;
+      `
+    }
+  }}
+
   ${({ variant, theme }) =>
     variant === "primary"
       ? `background: ${theme.colors.primary};`

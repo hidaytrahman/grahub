@@ -1,12 +1,14 @@
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import "./App.css";
 import AddCustomer from "./components/customers/AddCustomer";
 import { Box, Container } from "./components/styles/Core.styles";
 
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
 import CustomerLists from "./components/customers/CustomerLists";
 import FindCustomer from "./components/customers/FindCustomer";
 import { Copyright } from "./core/utils";
+import NotFound from "./components/common/NotFound";
+import Header from "./components/common/Header";
 
 export const theme = {
   colors: {
@@ -32,26 +34,6 @@ export const theme = {
   },
 };
 
-const Header = styled.header`
-  padding: 2rem;
-  background: ${({ theme }) => theme.colors.primary};
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  ul {
-    list-style-type: none;
-    display: flex;
-
-    li {
-      a {
-        margin: 0 5px;
-        text-decoration: none;
-      }
-    }
-  }
-`;
 
 function App() {
   return (
@@ -59,28 +41,7 @@ function App() {
       <div className="App">
         <ThemeProvider theme={theme}>
           <Container>
-            <Header>
-
-              <div>
-              <h1>GraHub</h1>
-              <p>Get a quick view of your customer’s interactions to deliver personalized experiences.</p>
-              </div>
-             
-              
-              <nav>
-                <ul>
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/list">Lists</Link>
-                  </li>
-                  <li>
-                    <Link to="/add">Add Customer</Link>
-                  </li>
-                </ul>
-              </nav>
-            </Header>
+            <Header />
 
             {/* @ts-ignore */}
             <Box margin="1rem">
@@ -88,6 +49,10 @@ function App() {
                 <Route path="/" element={<FindCustomer />} />
                 <Route path="/add" element={<AddCustomer />} />
                 <Route path="/list" element={<CustomerLists />} />
+                <Route path="/404" element={<NotFound />} />
+
+                
+                <Route path="*" element={<Navigate replace to="/404" />} />
               </Routes>
             </Box>
 

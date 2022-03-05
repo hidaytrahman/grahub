@@ -56,7 +56,7 @@ export const Box = styled.div`
   }
 `;
 
-export const StyledTypography = styled.div`
+export const Typography = styled.div`
   color: ${({ theme }) => theme.colors.text};
   font-size: 18px;
   font-weight: inherit;
@@ -71,11 +71,11 @@ export const StyledTypography = styled.div`
       : variant === "h3"
       ? "font-weight: 800; font-size: 17px;"
       : variant === "body1"
-      ? "font-size: 16px;"
+      ? "font-size: 21px;"
       : variant === "body2"
-      ? "font-size: 14px;"
+      ? "font-size: 18px;"
       : variant === "body3"
-      ? "font-size: 12px;"
+      ? "font-size: 14px;"
       : ""}
   ${({ type, theme }) =>
     type === "primary"

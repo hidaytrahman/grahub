@@ -1,9 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { config } from "../../core/config";
 import useLocalStorage from "../../core/hooks/useLocalStorage";
 import { isHR } from "../../core/utils";
-import { Alert, Box, Flex } from "../styles/Core.styles";
+import { Alert, Box, Flex, Typography } from "../styles/Core.styles";
 import { Button, Input, Message, Textarea } from "../styles/Forms.styles";
 
 const AddCustomer = () => {
@@ -13,6 +13,8 @@ const AddCustomer = () => {
     watch,
     formState: { errors },
   } = useForm();
+
+  const location = useLocation();
 
   const { customers, setCustomers } = useLocalStorage();
 
@@ -44,7 +46,7 @@ const AddCustomer = () => {
       {/* {isHRi.href === config.hr.path ? ( */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box maxWidth="400px" bg="#f3f3f3" padding="10px">
-          <h2>Add a customer</h2>
+          <Typography variant="body1">Add a customer</Typography>
           <Flex direction="column">
             <Input
               type="text"
@@ -62,6 +64,7 @@ const AddCustomer = () => {
             <Input
               type="number"
               placeholder="Enter mobile number"
+              value={location?.state?.phone ? location.state.phone : ""}
               {...register("phone", {
                 required: true,
                 minLength: 10,
@@ -98,7 +101,7 @@ const AddCustomer = () => {
         </Box>
       </form>
       {/* ) : ( */}
-      <Alert>Sorry duded</Alert>
+      {/* <Alert>Sorry duded</Alert> */}
       {/* )} */}
     </>
   );
