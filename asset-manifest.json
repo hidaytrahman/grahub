@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/grahub/static/css/main.e6c13ad2.css",
+    "main.js": "/grahub/static/js/main.5cbe4673.js",
+    "static/js/787.c775f1d9.chunk.js": "/grahub/static/js/787.c775f1d9.chunk.js",
+    "index.html": "/grahub/index.html",
+    "main.e6c13ad2.css.map": "/grahub/static/css/main.e6c13ad2.css.map",
+    "main.5cbe4673.js.map": "/grahub/static/js/main.5cbe4673.js.map",
+    "787.c775f1d9.chunk.js.map": "/grahub/static/js/787.c775f1d9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.5cbe4673.js"
+  ]
+}
