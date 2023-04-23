@@ -23,7 +23,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build", 
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -52,6 +52,7 @@
     "styled-components": "^5"
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.23"
+    "@types/styled-components": "^5.1.23",
+    "standard": "^17.0.0"
   }
 }

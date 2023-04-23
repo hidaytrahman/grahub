@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 export const Flex = styled.div`
   display: flex;
-  align-items: ${({ alignItems }) => (alignItems ? alignItems : "center")};
+  align-items: ${({ alignItems }) => (alignItems || 'center')};
   flex-direction: ${({ direction }) => direction};
   justify-content: ${({ justifyContent }) => justifyContent};
   margin: ${({ margin }) => margin};
@@ -13,7 +13,7 @@ export const Flex = styled.div`
     flex-direction: column;
     justify-content: center;
   }
-`;
+`
 
 export const Badge = styled.span`
   display: inline-block;
@@ -23,20 +23,20 @@ export const Badge = styled.span`
   border-radius: ${({ theme }) => theme.units.radius};
   font-size: 14px;
   color: ${({ theme }) => theme.colors.text};
-`;
+`
 
 export const Avatar = styled.img`
   max-width: ${({ width }) => width};
   border-radius: 50%;
   margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding};
-`;
+`
 
 export const Image = styled.img`
   max-width: ${({ width }) => width};
   margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding};
-`;
+`
 
 export const Box = styled.div`
   max-width: ${({ maxWidth }) => maxWidth};
@@ -54,7 +54,7 @@ export const Box = styled.div`
     margin: 1rem;
     border: 0;
   }
-`;
+`
 
 export const Typography = styled.div`
   color: ${({ theme }) => theme.colors.text};
@@ -64,32 +64,32 @@ export const Typography = styled.div`
   padding: ${({ padding }) => padding};
   text-align: ${({ align }) => align};
   ${({ variant }) =>
-    variant === "h1"
-      ? "font-weight: 800; font-size: 25px;"
-      : variant === "h2"
-      ? "font-weight: 800; font-size: 20px;"
-      : variant === "h3"
-      ? "font-weight: 800; font-size: 17px;"
-      : variant === "body1"
-      ? "font-size: 21px;"
-      : variant === "body2"
-      ? "font-size: 18px;"
-      : variant === "body3"
-      ? "font-size: 14px;"
-      : ""}
+    variant === 'h1'
+      ? 'font-weight: 800; font-size: 25px;'
+      : variant === 'h2'
+      ? 'font-weight: 800; font-size: 20px;'
+      : variant === 'h3'
+      ? 'font-weight: 800; font-size: 17px;'
+      : variant === 'body1'
+      ? 'font-size: 21px;'
+      : variant === 'body2'
+      ? 'font-size: 18px;'
+      : variant === 'body3'
+      ? 'font-size: 14px;'
+      : ''}
   ${({ type, theme }) =>
-    type === "primary"
+    type === 'primary'
       ? `color: ${theme.colors.primary};`
-      : type === "secondary"
+      : type === 'secondary'
       ? `color: ${theme.colors.grey};`
-      : type === "success"
+      : type === 'success'
       ? `color: ${theme.colors.success};`
-      : type === "danger"
+      : type === 'danger'
       ? `color: ${theme.colors.danger};`
-      : type === "warning"
+      : type === 'warning'
       ? `color: ${theme.colors.warning};`
       : `color: ${theme.colors.text};`};
-`;
+`
 
 export const Alert = styled.div`
   font-weight: inherit;
@@ -101,20 +101,20 @@ export const Alert = styled.div`
   margin: 10px 0;
   border-radius: ${({ theme }) => theme.units.radius};
   ${({ variant, theme }) =>
-    variant === "primary"
+    variant === 'primary'
       ? `background: ${theme.colors.primary};`
-      : variant === "secondary"
+      : variant === 'secondary'
       ? `background: ${theme.colors.secondary};`
-      : variant === "success"
+      : variant === 'success'
       ? `background: ${theme.colors.success};`
-      : variant === "danger"
+      : variant === 'danger'
       ? `background: ${theme.colors.danger};`
-      : variant === "warning"
+      : variant === 'warning'
       ? `background: ${theme.colors.warning};`
-      : variant === "info"
+      : variant === 'info'
       ? `background: ${theme.colors.info};`
-      : `color: #000;`};
-`;
+      : 'color: #000;'};
+`
 
 export const Divider = styled.div`
   height: 1px;
@@ -123,17 +123,17 @@ export const Divider = styled.div`
   border-radius: ${({ theme }) => theme.units.radius};
   margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding};
-`;
+`
 
 export const Section = styled.section`
   ${({ variant, theme }) =>
-    variant === "secondary" ? `background: ${theme.colors.secondary};` : ``}
+    variant === 'secondary' ? `background: ${theme.colors.secondary};` : ''}
   margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding};
-`;
+`
 
 export const Container = styled.div`
   max-width: ${({ theme }) => theme.units.maxWidth};
   margin: 0 auto;
   padding: ${({ padding }) => padding};
-`;
+`
