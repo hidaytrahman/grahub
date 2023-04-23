@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { Link } from "../common/Forms";
+import styled, { css } from 'styled-components'
+import { Link } from '../common/Forms'
 
 const baseInputStyles = css`
   color: palevioletred;
@@ -8,7 +8,7 @@ const baseInputStyles = css`
   padding: 0.25em 1em;
   border: 2px solid palevioletred;
   border-radius: 3px;
-`;
+`
 
 export const Button = styled.button`
   ${baseInputStyles}
@@ -16,8 +16,7 @@ export const Button = styled.button`
   background: ${({ theme }) => theme.colors.primary};
 
   ${(size) => {
-
-    if(size === 'small') {
+    if (size === 'small') {
       return `
       padding: 0 5px;
       font-size: 14px;
@@ -26,15 +25,15 @@ export const Button = styled.button`
   }}
 
   ${({ variant, theme }) =>
-    variant === "primary"
+    variant === 'primary'
       ? `background: ${theme.colors.primary};`
-      : variant === "secondary"
+      : variant === 'secondary'
       ? `background: ${theme.colors.grey};`
-      : variant === "success"
+      : variant === 'success'
       ? `color: ${theme.colors.success};`
-      : variant === "danger"
+      : variant === 'danger'
       ? `background: ${theme.colors.danger}; color: #fff;`
-      : variant === "warning"
+      : variant === 'warning'
       ? `color: ${theme.colors.warning};`
       : `color: ${theme.colors.text};`};
 
@@ -42,26 +41,26 @@ export const Button = styled.button`
     color: #000;
     background: ${({ theme }) => theme.colors.secondary};
   }
-`;
+`
 
 export const ButtonLink = styled(Button)`
   color: #c4c4;
-`;
+`
 
 export const StyledLink = styled.a`
   color: palevioletred;
   font-weight: bold;
-`;
+`
 
 export const Message = styled.div`
   color: palevioletred;
   font-size: 12px;
-`;
+`
 
 export const Input = styled.input`
   ${baseInputStyles}
-`;
+`
 
 export const Textarea = styled.textarea`
   ${baseInputStyles}
-`;
+`

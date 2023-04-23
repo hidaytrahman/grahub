@@ -1,41 +1,38 @@
 
-import useLocalStorage from "../../core/hooks/useLocalStorage";
+import useLocalStorage from '../../core/hooks/useLocalStorage'
 
-
-import { Alert } from "../styles/Core.styles";
-import { Button } from "../styles/Forms.styles";
+import { Alert } from '../styles/Core.styles'
+import { Button } from '../styles/Forms.styles'
 
 const CustomerLists = () => {
-  const { customers, setCustomers } = useLocalStorage();
+  const { customers, setCustomers } = useLocalStorage()
 
   const deleteHandler = (index) => {
-    const confirm = window.confirm("Are you sure want to delete?");
+    const confirm = window.confirm('Are you sure want to delete?')
 
     if (!confirm) {
-      return;
+      return
     }
 
     const newCustomers = customers.filter(
       (item, custIndex) => custIndex !== index
-    );
-    setCustomers(newCustomers);
-  };
-
-
+    )
+    setCustomers(newCustomers)
+  }
 
   return (
     <>
-    {/* <div>
+      {/* <div>
     <Button onClick={showDummyCustomerHandler}>Show Dummy Data</Button>
     <Button onClick={clearDummyCustomerHandler}>Clear Dummy Customer</Button>
     </div> */}
-      <table className="table">
+      <table className='table'>
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Address</th>
+            <th scope='col'>#</th>
+            <th scope='col'>Name</th>
+            <th scope='col'>Phone</th>
+            <th scope='col'>Address</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -43,13 +40,13 @@ const CustomerLists = () => {
           {customers ? (
             customers.map((item, index) => (
               <tr key={index}>
-                <th scope="row">{index + 1}</th>
+                <th scope='row'>{index + 1}</th>
                 <td> {item.name}</td>
                 <td> {item.phone}</td>
                 <td>{item.address}</td>
                 <td>
                   {/* <Button>Wah</Button> */}
-                  <Button variant="danger" onClick={() => deleteHandler(index)}>
+                  <Button variant='danger' onClick={() => deleteHandler(index)}>
                     Delete
                   </Button>
                 </td>
@@ -61,10 +58,10 @@ const CustomerLists = () => {
         </tbody>
       </table>
     </>
-  );
-};
+  )
+}
 
-export default CustomerLists;
+export default CustomerLists
 
 // Todo Features
 // Filter
